@@ -46,15 +46,23 @@ public class BaseTest {
 
         setDriver(new DriverFactory().initialDriver());
 
+        System.out.println("CURRENT THREAD is in Before Method -----> "+Thread.currentThread().threadId());
+        System.out.println("DRIVER is in Before Method-> "+getDriver());
+
     }
 
     @AfterMethod
-    public void stopDriver()
-    {
+    public void stopDriver() throws InterruptedException {
+
+        System.out.println("CURRENT THREAD is in After Method-----> "+Thread.currentThread().threadId());
+        System.out.println("DRIVER is in After Method-> "+getDriver());
 
         //driver.quit();
 
+        Thread.sleep(1000);
         getDriver().quit();
+
+
     }
 
 }
