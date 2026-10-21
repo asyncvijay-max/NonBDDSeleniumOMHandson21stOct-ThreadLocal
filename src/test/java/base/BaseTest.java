@@ -1,6 +1,7 @@
 package base;
 
 import factory.DriverFactory;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -19,20 +20,41 @@ import org.testng.annotations.BeforeMethod;
 
 public class BaseTest {
 
-    protected WebDriver driver;
+    //protected WebDriver driver;
+
+    protected ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+
+    //setter method
+    private void setDriver(WebDriver driver)
+    {
+        this.driver.set(driver);
+    }
+
+    public WebDriver getDriver()
+    {
+        return this.driver.get();
+    }
+
+
+    //getter method
 
     @BeforeMethod
     public void startDriver()
     {
 
-        driver = new DriverFactory().initialDriver();
+        //driver = new DriverFactory().initialDriver();
+
+        setDriver(new DriverFactory().initialDriver());
 
     }
 
     @AfterMethod
     public void stopDriver()
     {
-      driver.quit();
+
+        //driver.quit();
+
+        getDriver().quit();
     }
 
 }

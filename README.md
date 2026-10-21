@@ -1,5 +1,5 @@
 the repo:
-https://github.com/asyncvijay-max/NonBDDSeleniumOMHandson21stOct.git
+https://github.com/asyncvijay-max/NonBDDSeleniumOMHandson21stOct-ThreadLocal.git
 
 website under test:
 https://askomdch.com/

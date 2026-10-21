@@ -39,11 +39,11 @@ public class CheckOutManagementTest extends BaseTest {
         BillingAddress billingAddress = JacksonUtils.deSerializeJson("myBillingAddress.json",BillingAddress.class);
 
 
-    HomePage homePage = new HomePage(driver);
+    HomePage homePage = new HomePage(getDriver());
     homePage.loadPage("/");
     homePage.navigateToStorePage();
 
-    StorePage storePage = new StorePage(driver);
+    StorePage storePage = new StorePage(getDriver());
     storePage.searchTheProductInTheSearchBox("blue");
     storePage.clickOnTheSearchBtn();
     //Need to assert the search result text later
@@ -51,11 +51,11 @@ public class CheckOutManagementTest extends BaseTest {
     storePage.addProductToTheCart("Blue Shoes");
     storePage.clickOnViewCartLink();
 
-    CartPage cartPage = new CartPage(driver);
+    CartPage cartPage = new CartPage(getDriver());
     //Need to assert the product Name,product Qty in the Cart later
     cartPage.clickOnProceedToCheckOutBtn();
 
-     CheckOutPage checkOutPage = new CheckOutPage(driver);
+     CheckOutPage checkOutPage = new CheckOutPage(getDriver());
 //    String fname = "Kiran";
 //    String lastname ="John";
 //    String billstreet = "123 Oven street";
@@ -77,7 +77,7 @@ public class CheckOutManagementTest extends BaseTest {
         //Then click the checkout place order button
         checkOutPage.placeOrder();
 
-       OrderConfirmationPage orderConfirmationPage = new OrderConfirmationPage(driver);
+       OrderConfirmationPage orderConfirmationPage = new OrderConfirmationPage(getDriver());
         //Need to assert the order confirmation text ,later
 
     }
@@ -106,11 +106,11 @@ public class CheckOutManagementTest extends BaseTest {
 
 
 
-        HomePage homePage = new HomePage(driver);
+        HomePage homePage = new HomePage(getDriver());
         homePage.loadPage("/");
         homePage.navigateToStorePage();
 
-        StorePage storePage = new StorePage(driver);
+        StorePage storePage = new StorePage(getDriver());
         storePage.searchTheProductInTheSearchBox("blue");
         storePage.clickOnTheSearchBtn();
         //Need to assert the search result text later
@@ -118,11 +118,11 @@ public class CheckOutManagementTest extends BaseTest {
         storePage.addProductToTheCart("Blue Shoes");
         storePage.clickOnViewCartLink();
 
-        CartPage cartPage = new CartPage(driver);
+        CartPage cartPage = new CartPage(getDriver());
         //Need to assert the product Name,product Qty in the Cart later
         cartPage.clickOnProceedToCheckOutBtn();
 
-        CheckOutPage checkOutPage = new CheckOutPage(driver);
+        CheckOutPage checkOutPage = new CheckOutPage(getDriver());
 
         checkOutPage.clickOnLoginLinkCheckOut();
         checkOutPage.enterLoginCredentialsBeforeCheckOut(user);
@@ -131,7 +131,7 @@ public class CheckOutManagementTest extends BaseTest {
 
         checkOutPage.placeOrder();
 
-        OrderConfirmationPage orderConfirmationPage = new OrderConfirmationPage(driver);
+        OrderConfirmationPage orderConfirmationPage = new OrderConfirmationPage(getDriver());
         //Need to assert the order confirmation text ,later
 
 
